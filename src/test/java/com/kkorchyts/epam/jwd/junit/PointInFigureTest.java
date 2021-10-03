@@ -22,24 +22,24 @@ public class PointInFigureTest {
 
     @Test
     public void pointInFigureTest() {
-        List<PointInFigureApp.Point> points =  new ArrayList<>();
+        List<PointInFigureApp.Point> points = new ArrayList<>();
         points.add(new PointInFigureApp.Point(1, 1));
         points.add(new PointInFigureApp.Point(-3, 0));
         points.add(new PointInFigureApp.Point(-1, -1));
 
-        for (PointInFigureApp.Point point: points) {
+        for (PointInFigureApp.Point point : points) {
             Assert.assertTrue(PointInFigureApp.pointIsInFigure(regions, point));
         }
     }
 
     @Test
     public void pointNotInFigureTest() {
-        List<PointInFigureApp.Point> points =  new ArrayList<>();
+        List<PointInFigureApp.Point> points = new ArrayList<>();
         points.add(new PointInFigureApp.Point(-3, 1));
         points.add(new PointInFigureApp.Point(-1, 5));
         points.add(new PointInFigureApp.Point(3, 2));
 
-        for (PointInFigureApp.Point point: points) {
+        for (PointInFigureApp.Point point : points) {
             Assert.assertFalse(PointInFigureApp.pointIsInFigure(regions, point));
         }
     }

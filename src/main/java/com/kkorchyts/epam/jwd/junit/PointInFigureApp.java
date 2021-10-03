@@ -100,7 +100,7 @@ public class PointInFigureApp {
 
     public static void printResult(boolean result) {
         if (result) {
-            printMessage(POSITIVE_RESULT_MESSAGE,true);
+            printMessage(POSITIVE_RESULT_MESSAGE, true);
         } else {
             printMessage(NEGATIVE_RESULT_MESSAGE, true);
         }
@@ -111,12 +111,12 @@ public class PointInFigureApp {
         int regionsCount = 2;
         Region[] regions = new Region[regionsCount];
 
-        for (int i = 0; i < regionsCount ; i++) {
+        for (int i = 0; i < regionsCount; i++) {
             printMessage(String.format("Enter region %d:", i + 1), true);
             printMessage("Enter Point 1:", true);
             Point left = readPoint();
             printMessage("Enter Point 2:", true);
-            Point right= readPoint();
+            Point right = readPoint();
             regions[i] = new Region(left, right);
         }
 
