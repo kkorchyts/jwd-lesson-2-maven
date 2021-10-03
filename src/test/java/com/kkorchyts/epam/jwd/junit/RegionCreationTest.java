@@ -50,7 +50,6 @@ public class RegionCreationTest {
     }
 
     // XEquals
-
     @Test
     public void regionCreationPointInRightOrderXEqualsTest() {
         PointInFigureApp.Point point1 = new PointInFigureApp.Point(0, 4);
@@ -74,7 +73,6 @@ public class RegionCreationTest {
     }
 
     // YEquals
-
     @Test
     public void regionCreationPointInRightOrderYEqualsTest() {
         PointInFigureApp.Point point1 = new PointInFigureApp.Point(-2, 0);

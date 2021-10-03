@@ -57,7 +57,6 @@ public class PointInFigureApp {
         }
     }
 
-
     public static void printMessage(String message, boolean lineFeed) {
         if (lineFeed) {
             System.out.println(message);
@@ -124,7 +123,6 @@ public class PointInFigureApp {
         printMessage("Checking if point is in a region:", true);
         printMessage("Enter Point:", true);
         Point point = readPoint();
-
 
         boolean result = pointIsInFigure(regions, point);
 
