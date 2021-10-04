@@ -7,8 +7,12 @@ public class PointInFigureApp {
     static final String READ_X_MESSAGE = "Please, enter x: ";
     static final String READ_Y_MESSAGE = "Please, enter y: ";
 
-    static final String POSITIVE_RESULT_MESSAGE = "Point is in the region";
-    static final String NEGATIVE_RESULT_MESSAGE = "Point isn't in the region";
+    static final String READ_REGION_POINT_1_MESSAGE = "Enter Point 1:";
+    static final String READ_REGION_POINT_2_MESSAGE = "Enter Point 2:";
+
+
+    static final String POSITIVE_RESULT_MESSAGE = "Point is in the figure!";
+    static final String NEGATIVE_RESULT_MESSAGE = "Point isn't in the figure!";
 
     static class Point {
         private final int x;
@@ -93,12 +97,20 @@ public class PointInFigureApp {
         return result;
     }
 
-    public static Point readPoint() {
+    public static Point readPoint(String message) {
+        printMessage(message, true);
         return new Point(getInteger(READ_X_MESSAGE),
                 getInteger(READ_Y_MESSAGE));
     }
 
-    public static void printResult(boolean result) {
+    public static Region readRegion(String message) {
+        printMessage(message, true);
+        Point left = readPoint(READ_REGION_POINT_1_MESSAGE);
+        Point right = readPoint(READ_REGION_POINT_2_MESSAGE);
+        return new Region(left, right);
+    }
+
+    public static void printResultPointIsInFigure(boolean result) {
         if (result) {
             printMessage(POSITIVE_RESULT_MESSAGE, true);
         } else {
@@ -112,20 +124,13 @@ public class PointInFigureApp {
         Region[] regions = new Region[regionsCount];
 
         for (int i = 0; i < regionsCount; i++) {
-            printMessage(String.format("Enter region %d:", i + 1), true);
-            printMessage("Enter Point 1:", true);
-            Point left = readPoint();
-            printMessage("Enter Point 2:", true);
-            Point right = readPoint();
-            regions[i] = new Region(left, right);
+            regions[i] = readRegion(String.format("Enter region %d:", i + 1));
         }
 
-        printMessage("Checking if point is in a region:", true);
-        printMessage("Enter Point:", true);
-        Point point = readPoint();
-
+        printMessage("Checking if the point is in a region:", true);
+        Point point = readPoint("Enter Point:");
         boolean result = pointIsInFigure(regions, point);
 
-        printResult(result);
+        printResultPointIsInFigure(result);
     }
 }
